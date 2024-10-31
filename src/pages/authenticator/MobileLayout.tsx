@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { StepsType } from '../../types/StepsType';
+import React, { useState } from "react";
+import { StepsType } from "../../types/StepsType";
 import SignUpForm from "../../components/forms/mobile/SignUpForm";
 import ConnectMailForm from "../../components/forms/mobile/ConnectMailForm";
 import ConnectStoreForm from "../../components/forms/mobile/ConnectStoreForm";
@@ -7,38 +7,64 @@ import DontUseEmail from "../../components/forms/mobile/DontUseEmail";
 import DontUseShopifyForm from "../../components/forms/mobile/DontUseShopifyForm";
 import StoreConnected from "../../components/forms/mobile/StoreConnected";
 import ReceivedForm from "../../components/forms/mobile/ReceivedForm";
-import { AuthState } from '../../types/AuthStatusType';
-
-const steps: StepsType = [
+import { AuthState } from "../../types/AuthStatusType";
+import { Box, LinearProgress } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import MobileStepper from "../../components/MobileStepper";
+import Button from "@mui/material/Button";
+import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
+import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import ChadIcon from "../../common/ChadIcon";
+const steps = [
   {
-    label: "Welcome",
+    "1": 25,
   },
   {
-    label: "Connect Your Shopify store",
+    "2": 50,
   },
   {
-    label: "Connect your customer support email",
+    "3": 75,
   },
   {
-    label: "Done",
+    "4": 100,
   },
 ];
 
+enum Steps {
+  First = 25,
+  Second = 50,
+  Third = 75,
+  Last = 100,
+}
+
 function MobileLayout() {
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = useState(25);
   const [formState, setFormState] = useState<AuthState>(AuthState.SignUp);
   const [showPreloader, setShowPreloader] = useState(false);
+  const [isDisplayHeader, setIsDisplayHeader] = useState(true);
 
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    setActiveStep(activeStep + 25);
   };
 
-  const handleFirst = () =>{
-    setActiveStep(0)
-  }
+  const handleHideHeader = () => {
+    setIsDisplayHeader(false);
+  };
+
+  const handleShowHeader = () => {
+    setIsDisplayHeader(true);
+  };
+
+  const handleFirst = () => {
+    if (activeStep != Steps.Last) {
+      setActiveStep(25);
+    }
+  };
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    if (activeStep != Steps.First) {
+      setActiveStep(activeStep - 25);
+    }
   };
 
   const handleAuthStateChanged = (state: AuthState) => {
@@ -71,6 +97,7 @@ function MobileLayout() {
             handleAuthStateChanged={handleAuthStateChanged}
             handleBack={handleBack}
             handleNext={handleNext}
+            handleHideHeader={handleHideHeader}
           />
         );
       case AuthState.DontUseEmail:
@@ -79,6 +106,7 @@ function MobileLayout() {
             handleAuthStateChanged={handleAuthStateChanged}
             handleBack={handleBack}
             handleNext={handleNext}
+            handleHideHeader={handleHideHeader}
           />
         );
       case AuthState.DontUseShopify:
@@ -87,6 +115,7 @@ function MobileLayout() {
             handleAuthStateChanged={handleAuthStateChanged}
             handleBack={handleBack}
             handleNext={handleNext}
+            handleHideHeader={handleHideHeader}
           />
         );
       case AuthState.StoreConected:
@@ -95,26 +124,57 @@ function MobileLayout() {
             handleAuthStateChanged={handleAuthStateChanged}
             handleBack={handleBack}
             handleNext={handleNext}
+            handleShowHeader={handleShowHeader}
           />
         );
-        case AuthState.ReceivedResponce:
+      case AuthState.ReceivedResponce:
         return (
           <ReceivedForm
             handleAuthStateChanged={handleAuthStateChanged}
             handleBack={handleBack}
             handleNext={handleNext}
-            handleFirst = {handleFirst}
+            handleFirst={handleFirst}
+            handleShowHeader={handleShowHeader}
           />
         );
     }
   };
 
-
   return (
-    <div>
-      Mobile
-    </div>
-  )
+    <Box sx={{ width: "100vw", height: "100vh" }}>
+      <Box
+        sx={{
+          p: "12px 32px 12px 32px",
+        }}
+      >
+        {isDisplayHeader ? (
+          <>
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <ChadIcon size={42} />
+              <h1 style={{ marginBottom: "6px", marginTop: "6px" }}>Chad</h1>
+            </Box>
+            <h4
+              style={{
+                marginBottom: "6px",
+                marginTop: "6px",
+                color: "#C9D3E0",
+              }}
+            >
+              Step {activeStep / 25} of 4
+            </h4>
+            <MobileStepper
+              activeStep={activeStep}
+              handleBack={handleBack}
+              handleNext={handleNext}
+            />
+          </>
+        ) : null}
+
+          {renderForm()}
+
+      </Box>
+    </Box>
+  );
 }
 
-export default MobileLayout
+export default MobileLayout;

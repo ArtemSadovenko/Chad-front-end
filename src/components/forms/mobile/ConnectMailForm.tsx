@@ -28,28 +28,21 @@ function ConnectMailForm(props:FormProps) {
   };
 
   return (
-    <Paper
+    <Box
     sx={{
-      width: "30vw",
-      height: "auto",
-      backgroundColor: "white",
       display: "flex",
 
       justifyContent: "center",
       flexDirection: "column",
-      padding: "12px 32px 12px 32px ",
+
     }}
   >
-    <Box sx={{ width: "100%", display: "flex", alignItems: "center" }}>
-      <ChadIcon />
-      <h2 style={{}}>Chad</h2>
-    </Box>
-    <h2 style={{ margin: "0" }}>Connect your customer support email</h2>
+    <h2 >Connect your customer support email</h2>
     <p>
     Allows Chad to send automated responses on your behalf from your usual support mailbox
     </p>
 
-    <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
+    <List sx={{ width: "100%", maxWidth: 360, bgcolor: "#F8F9FC", marginBottom:"12px" }}>
   
 
       <ListItem alignItems="flex-start">
@@ -119,7 +112,7 @@ function ConnectMailForm(props:FormProps) {
         </Button>
       </>
     )}
-  </Paper>
+  </Box>
   )
 }
 

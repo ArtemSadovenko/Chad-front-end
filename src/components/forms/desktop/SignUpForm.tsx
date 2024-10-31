@@ -115,6 +115,7 @@ function SignUpForm(props: FormProps) {
       error = {emailError}
         sx={{
           m: "12px 0px 12px 0px ",
+           backgroundColor:"#F8F9FC"
         }}
         label="Email"
         placeholder="magachad@trychad.com"
@@ -127,6 +128,7 @@ function SignUpForm(props: FormProps) {
             error = {nameError}
         sx={{
           m: "12px 0px 12px 0px ",
+           backgroundColor:"#F8F9FC"
         }}
         label="Your name"
         placeholder="Mega Chad"
@@ -134,6 +136,7 @@ function SignUpForm(props: FormProps) {
 
       <FormControl variant="outlined" sx={{
           m: "12px 0px 12px 0px ",
+           backgroundColor:"#F8F9FC"
         }}>
         <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
 

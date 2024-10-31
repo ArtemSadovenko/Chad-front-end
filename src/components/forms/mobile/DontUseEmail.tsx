@@ -14,6 +14,7 @@ interface FormProps {
   handleAuthStateChanged: (state: AuthState) => void;
   handleNext: () => void;
   handleBack: () => void;
+  handleHideHeader: () => void;
 }
 
 const listEmails = [
@@ -38,27 +39,21 @@ function DontUseEmail(props: FormProps) {
     if (selectedEmail == "") {
       setIsSelectError(true);
     } else {
+      props.handleHideHeader()
       props.handleAuthStateChanged(AuthState.ReceivedResponce);
     }
   };
   return (
-    <Paper
+    <Box
       sx={{
-        width: "30vw",
-        height: "auto",
         backgroundColor: "white",
         display: "flex",
 
         justifyContent: "center",
         flexDirection: "column",
-        padding: "12px 32px 12px 32px ",
       }}
     >
-      <Box sx={{ width: "100%", display: "flex", alignItems: "center" }}>
-        <ChadIcon />
-        <h2>Chad</h2>
-      </Box>
-      <h2 style={{ margin: "0" }}>Dont use Gmail?</h2>
+      <h2 >Dont use Gmail?</h2>
       <p>
         Chad Beta is currently only integrated with Gmail. We’ll send you an
         email when Chad becomes compatible with your support ticket platform.
@@ -103,7 +98,7 @@ function DontUseEmail(props: FormProps) {
           </p>
         </a>
       </Box>
-    </Paper>
+    </Box>
   );
 }
 

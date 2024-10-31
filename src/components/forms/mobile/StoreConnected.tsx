@@ -6,37 +6,38 @@ interface FormProps {
   handleAuthStateChanged: (state: AuthState) => void;
   handleNext: () => void;
   handleBack: () => void;
+  handleShowHeader: ()=> void;
 }
 
 
 function StoreConnected(props: FormProps) {
   const handleClick = () =>{
     props.handleNext()
+    props.handleShowHeader()
     props.handleAuthStateChanged(AuthState.ConnectMail)
   }
 
   return (
-    <Paper
+    <Box
     sx={{
-      width: "30vw",
-      height: "auto",
+
       backgroundColor: "white",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
       flexDirection: "column",
-      padding: "64px 64px 64px 64px ",
+
     }}
   >
-    <img src={racconImage} style={{width: "80px"}}></img>
+    <img src={racconImage} style={{width: "80px", marginTop:"15vh"}}></img>
     <h2>Store connected</h2>
-    <p>Chad is now able to manage customer support requests for [STORE-NAME].</p> 
+    <p style={{ textAlign: 'center' }}>Chad is now able to manage customer support requests for [STORE-NAME].</p> 
     <Button variant='contained' sx={{backgroundColor: "#32ABF2"}} onClick={handleClick}>Continue</Button>
     <Box sx={{display:"flex", justifyContent:"center"}}>
     <p>Wrong Store? &nbsp;</p>
     <a style={{color: "#32ABF2"}}><p>Connect the other one</p></a>
     </Box>
-  </Paper>
+  </Box>
   )
 }
 

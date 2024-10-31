@@ -14,6 +14,7 @@ interface FormProps {
   handleAuthStateChanged: (state: AuthState) => void;
   handleNext: () => void;
   handleBack: () => void;
+  handleHideHeader:() => void;
 }
 
 const listWebConstructors = [
@@ -43,27 +44,21 @@ function DontUseShopifyForm(props: FormProps) {
       setIsSelectError(true)
     }
     else{
+      props.handleHideHeader()
     props.handleAuthStateChanged(AuthState.ReceivedResponce);
     }
   };
   return (
-    <Paper
+    <Box
       sx={{
-        width: "30vw",
-        height: "auto",
         backgroundColor: "white",
         display: "flex",
 
         justifyContent: "center",
         flexDirection: "column",
-        padding: "12px 32px 12px 32px ",
       }}
     >
-      <Box sx={{ width: "100%", display: "flex", alignItems: "center" }}>
-        <ChadIcon />
-        <h2 style={{}}>Chad</h2>
-      </Box>
-      <h2 style={{ margin: "0" }}>Dont use Shopify?</h2>
+      <h2 >Dont use Shopify?</h2>
       <p>
         Chad Beta is currently only available on Shopify. We’ll send you an
         email when Chad becomes available on your platform.
@@ -108,7 +103,7 @@ function DontUseShopifyForm(props: FormProps) {
           </p>
         </a>
       </Box>
-    </Paper>
+    </Box>
   );
 }
 
