@@ -27,6 +27,6 @@ body{
 
 @media (min-width: 601px) and (max-width: 1024px) {
   body {
-    font-size: 4vw; 
+    font-size: 3vw; 
   }
 }

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { StepsType } from "../../types/StepsType";
 import SignUpForm from "../../components/forms/mobile/SignUpForm";
 import ConnectMailForm from "../../components/forms/mobile/ConnectMailForm";
 import ConnectStoreForm from "../../components/forms/mobile/ConnectStoreForm";
@@ -9,26 +8,8 @@ import StoreConnected from "../../components/forms/mobile/StoreConnected";
 import ReceivedForm from "../../components/forms/mobile/ReceivedForm";
 import { AuthState } from "../../types/AuthStatusType";
 import { Box, LinearProgress } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
 import MobileStepper from "../../components/MobileStepper";
-import Button from "@mui/material/Button";
-import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
-import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import ChadIcon from "../../common/ChadIcon";
-const steps = [
-  {
-    "1": 25,
-  },
-  {
-    "2": 50,
-  },
-  {
-    "3": 75,
-  },
-  {
-    "4": 100,
-  },
-];
 
 enum Steps {
   First = 25,
@@ -170,8 +151,7 @@ function MobileLayout() {
           </>
         ) : null}
 
-          {renderForm()}
-
+        {renderForm()}
       </Box>
     </Box>
   );

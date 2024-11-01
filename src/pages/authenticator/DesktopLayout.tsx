@@ -1,12 +1,5 @@
 import { Box, Grid2 } from "@mui/material";
 import React, { useState } from "react";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
-import StepContent from "@mui/material/StepContent";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import { Label } from "@mui/icons-material";
 import { StepsType } from "../../types/StepsType";
 import CustomStepper from "../../components/Stepper";
 import { AuthState } from "../../types/AuthStatusType";

@@ -79,6 +79,7 @@ function SignUpForm(props: FormProps) {
       props.handleNext();
       props.handleAuthStateChanged(AuthState.ConnectShopify);
     }
+
   };
 
   return (

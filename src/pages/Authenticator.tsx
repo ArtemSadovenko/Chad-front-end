@@ -7,7 +7,7 @@ import TabletLayout from "./authenticator/TabletLayout";
 
 enum customBreakpoints{
     mobile = 426,
-    tablet = 769
+    tablet = 1025
 }
 
 
