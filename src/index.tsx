@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
 import Authenticator from './pages/Authenticator';
-import { Dashboard } from '@mui/icons-material';
+import Dashboard from './pages/Dashboard';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
