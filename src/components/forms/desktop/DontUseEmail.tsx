@@ -35,7 +35,7 @@ function DontUseEmail(props: FormProps) {
   const [isSelectError, setIsSelectError] = useState(false);
 
   const handleClick = () => {
-    if (selectedEmail == "") {
+    if (selectedEmail === "") {
       setIsSelectError(true);
     } else {
       props.handleAuthStateChanged(AuthState.ReceivedResponce);
@@ -92,7 +92,7 @@ function DontUseEmail(props: FormProps) {
       </Button>
       <Box sx={{ display: "flex" }}>
         <p>Actually use Gmail? &nbsp; </p>
-        <a>
+        
           <p
             style={{ color: "#32ABF2", cursor: "pointer" }}
             onClick={() => {
@@ -101,7 +101,7 @@ function DontUseEmail(props: FormProps) {
           >
             Connect
           </p>
-        </a>
+        
       </Box>
     </Paper>
   );

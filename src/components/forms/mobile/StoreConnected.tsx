@@ -35,7 +35,7 @@ function StoreConnected(props: FormProps) {
     <Button variant='contained' sx={{backgroundColor: "#32ABF2"}} onClick={handleClick}>Continue</Button>
     <Box sx={{display:"flex", justifyContent:"center"}}>
     <p>Wrong Store? &nbsp;</p>
-    <a style={{color: "#32ABF2"}}><p>Connect the other one</p></a>
+    <p style={{color: "#32ABF2"}}>Connect the other one</p>
     </Box>
   </Box>
   )

@@ -165,9 +165,9 @@ function SignUpForm(props: FormProps) {
       </Button>
       <Box sx={{ display: "flex", justifyContent: "center"}}>
         <p>Already have an account? &nbsp; </p>
-        <a>
+        
           <p style={{ color: "#32ABF2", cursor: "pointer" }}>Login</p>
-        </a>
+        
       </Box>
     </>
   );

@@ -169,7 +169,7 @@ function SignUpForm(props: FormProps) {
       <Button onClick={handleClick} variant="contained" sx={{background: "#32ABF2"}}>Create accaunt</Button>
       <Box sx={{display:"flex"}}>
       <p>Already have an account? &nbsp; </p>
-      <a><p style={{color: "#32ABF2", cursor: "pointer"}}>Login</p></a>
+      <p style={{color: "#32ABF2", cursor: "pointer"}}>Login</p>
       </Box>
     </Paper>
   );

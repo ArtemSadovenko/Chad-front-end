@@ -2,6 +2,7 @@
   "name": "luna-test",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://your-username.github.io/Chad-front-end",
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
@@ -43,4 +44,5 @@
       "last 1 safari version"
     ]
   }
+  
 }

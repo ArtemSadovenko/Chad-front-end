@@ -92,7 +92,7 @@ function DontUseShopifyForm(props: FormProps) {
       </Button>
       <Box sx={{ display: "flex" }}>
         <p>Actually use Shopify? &nbsp; </p>
-        <a>
+        
           <p
             style={{ color: "#32ABF2", cursor: "pointer" }}
             onClick={() => {
@@ -101,7 +101,7 @@ function DontUseShopifyForm(props: FormProps) {
           >
             Connect
           </p>
-        </a>
+        
       </Box>
     </Box>
   );
